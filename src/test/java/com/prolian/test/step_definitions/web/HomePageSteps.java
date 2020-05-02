@@ -22,7 +22,8 @@ public class HomePageSteps extends PageObject {
         String actualURL = homePage.getHomePageURL();
         String expectedURL = TestContext.getInstance().getHost()+"/GB/en/";
         assertThat("User is not on the Home Page, Actual URL is --->"+getCurrentUrl(),actualURL,is(expectedURL));
-        // Adding to Git...
+        // Adding to Git... Creating branch
+        
     }
 
 
