@@ -1,0 +1,121 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 6,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 13881785100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The User is on the selfRidges Homepage",
+            "match": {
+              "location": "NavigationSteps.theUserIsOnTheSelfRidgesHomepage()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "Verify the Shopping bag and Order summary on Empty Bag",
+        "description": "",
+        "id": "product-bag-features;verify-the-shopping-bag-and-order-summary-on-empty-bag",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4371394100,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User navigate to \"Bag\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Bag",
+                  "offset": 18
+                }
+              ],
+              "location": "CheckoutFooterSteps.userNavigateTo(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 20130774000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Content sections Delivery and Returns should not be visible",
+            "match": {
+              "arguments": [
+                {
+                  "val": "should not",
+                  "offset": 38
+                }
+              ],
+              "location": "ProductBagSteps.contentSectionsDeliveryAndReturnsShouldNotBeVisible(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 201758300,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I should see empty shoping bag",
+            "match": {
+              "location": "ProductBagSteps.iShouldSeeEmptyShopingBag()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 5122359500,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "User click on Continue shopping button",
+            "match": {
+              "location": "ProductBagSteps.userClickOnContinueShoppingButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 326799200,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User is navigated to HomePage in same Window",
+            "match": {
+              "location": "HomePageSteps.userIsNavigatedToHomePageInSameWindow()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Regression"
+          }
+        ]
+      }
+    ],
+    "name": "Product Bag features",
+    "description": "  As a customer\n  I want to be able to view my online bag\n  So that I can see products prior to procedding through checkout",
+    "id": "product-bag-features",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/web/RegressionTest/productBag.feature",
+    "tags": []
+  }
+]

@@ -1,0 +1,84 @@
+package com.prolian.test.runners;
+
+import com.prolian.test.framework.helpers.Props;
+import cucumber.api.CucumberOptions;
+import cucumber.api.testng.CucumberFeatureWrapper;
+import cucumber.api.testng.PickleEventWrapper;
+import cucumber.api.testng.TestNGCucumberRunner;
+import io.leangen.geantyref.TypeFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+
+@CucumberOptions(features = "src/test/resources/features", monochrome = true, plugin = {
+        "pretty", "html:target/cucumber-report/RunReport",
+        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"@Regression"})
+
+
+public class AbstractTestNGCucumberTestsCustom {
+
+    private TestNGCucumberRunner testNGCucumberRunner;
+
+
+    @BeforeClass(alwaysRun = true)
+    public void setUpClass() throws Exception {
+
+        Class claz = this.getClass();
+        CucumberOptions options = this.getClass().getAnnotation(CucumberOptions.class);
+       String originalTags[] = options.tags();
+        Props.loadRunConfigProps("/environment.properties");
+  //  String newTags[] = ArrayUtils.addAll(originalTags, "@" + System.getProperty("locale", Props.getProp("defaultLocale")));
+        Field annotationDataField =claz.getClass().getDeclaredField("annotationData");
+        annotationDataField.setAccessible(true);
+        Field annotationField = annotationDataField.get(claz).getClass().getDeclaredField("annotations");
+        annotationField.setAccessible(true);
+        Map<String,Object> annotationParameters = new HashMap<>();
+        annotationParameters.put("features",options.features());
+       annotationParameters.put("tags",originalTags);
+        annotationParameters.put("plugin",options.plugin());
+        annotationParameters.put("glue",options.glue());
+        CucumberOptions newOptions = TypeFactory.annotation(CucumberOptions.class,annotationParameters);
+        Map<Class<? extends Annotation>, Annotation > annotations = (Map<Class<? extends  Annotation> , Annotation>) annotationField.get(annotationDataField.get(claz));
+        annotations.put(CucumberOptions.class, newOptions);
+        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+
+    }
+@Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
+
+    public void runScenario(PickleEventWrapper pickleWrapper, CucumberFeatureWrapper featureWrapper) throws Throwable{
+    testNGCucumberRunner.runScenario(pickleWrapper.getPickleEvent());
+}
+
+@DataProvider
+
+    public Object[][] scenarios(){
+
+        if (testNGCucumberRunner==null) {
+
+            return new Object[0][0];
+        }
+        return testNGCucumberRunner.provideScenarios();
+}
+
+@AfterClass(alwaysRun = true)
+
+    public void tearDownClass() {
+
+    if (testNGCucumberRunner==null) {
+    return;
+    }
+    testNGCucumberRunner.finish();
+}
+
+
+}
+
+
+
+
