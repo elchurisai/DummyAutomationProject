@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="prolianAutomationFrameWork" />
         <module name="SampleTesting" />
+        <module name="DummyAutomationProject" />
+        <module name="prolianAutomationFrameWork" />
       </profile>
     </annotationProcessing>
   </component>
