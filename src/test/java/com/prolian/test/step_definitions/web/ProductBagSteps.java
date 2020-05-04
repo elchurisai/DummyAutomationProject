@@ -4,6 +4,8 @@ import com.prolian.test.framework.PageObject;
 import com.prolian.test.framework.helpers.WebDriverHelper;
 import com.prolian.test.pageObjects.CheckoutFooter;
 import com.prolian.test.pageObjects.CustomerBagPage;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -59,7 +61,42 @@ public class ProductBagSteps extends PageObject {
     }
 
 
+    @And("^I add (\\d+) Products with \"([^\"]*)\" type$")
+    public void iAddProductsWithType(int numberofProducts, String type)  {
+        // Write code here that turns the phrase above into concrete actions
+        // Code to add the product to the Bag with only 1 product as specified. The Code for number of products is not displayed ...
 
+        customerBagPage.addProductsToBag();
+        timeUnitWait(2);
 
+    }
 
+    @And("^User Click on Checkout Toast on PDP Page$")
+    public void userClickOnCheckoutToastOnPDPPage() {
+
+        customerBagPage.clickOnCheckOutToastLink();
+    }
+
+    @Then("^Edit link for the product \"([^\"]*)\" be displayed$")
+    public void editLinkForTheProductBeDisplayed(String option)  {
+        // Write code here that turns the phrase above into concrete actions
+        Boolean actualValidationMessage = customerBagPage.isEditLinkDisplayed();
+
+        if (option.equalsIgnoreCase("should")) {
+
+            MatcherAssert.assertThat("Edit link is not displayed for product ",actualValidationMessage,is(true));
+        }
+        else if(option.equalsIgnoreCase("should not")) {
+
+            MatcherAssert.assertThat("Edit link is displayed for product but it shouldn't be displayed",actualValidationMessage,is(false));
+        }
+
+    }
+
+    @And("^the User selects to remove all products in the bag$")
+    public void theUserSelectsToRemoveAllProductsInTheBag() {
+        // Click to remove the products .
+        customerBagPage.clickOnRemoveAllProducts();
+
+    }
 }

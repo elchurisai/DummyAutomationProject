@@ -1,7 +1,11 @@
 package com.prolian.test.framework.helpers;
 
+import com.prolian.test.framework.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,11 +18,18 @@ import java.util.Date;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class UrlBuilder {
+public class UrlBuilder  {
+
+
 
     private static final Logger LOG = LoggerFactory.getLogger(UrlBuilder.class);
     private static final String RUN_CONFIG_PROPERTIES = "/environment.properties";
     private TestContext testContext = TestContext.getInstance();
+
+
+
+
+
     // private static URL apiUrl;
 
     static {
@@ -38,9 +49,10 @@ public class UrlBuilder {
             System.out.println(WebDriverHelper.getWebDriver().getTitle());
             //  System.out.println("Print the details" +cookiedetail);
             // WebDriverHelper.getWebDriver().manage().addCookie(cookiedetail);
-
-            WebDriverHelper.getWebDriver().findElement(By.xpath("//a[contains(text(),'ACCEPT COOKIES')]")).click();
         }
+
+
+
     }
 
 

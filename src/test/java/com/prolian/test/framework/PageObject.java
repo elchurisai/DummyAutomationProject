@@ -1,32 +1,42 @@
 package com.prolian.test.framework;
 
+import com.prolian.test.framework.helpers.JsonHelper;
+import com.prolian.test.framework.helpers.Products;
 import com.prolian.test.framework.helpers.Waiters;
 import com.prolian.test.framework.helpers.WebDriverHelper;
 import lombok.Getter;
 import lombok.Setter;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class PageObject {
 
-    @Getter
+@Getter
     @Setter
     public static WebDriver webDriver;
     public static final int DEFAULT_POLLING_IN_MILLS = 500;
     protected WebDriverWait webDriverWait;
     private static long DRIVER_WAIT_TIME = 30;
+    private static final Logger LOG = LoggerFactory.getLogger(PageObject.class);
 
     public static FluentWait<WebDriver> wait;
 
     public Waiters waiters = new Waiters(WebDriverHelper.getWebDriver());
 
-
+    public static List<Products> products = new ArrayList<>();
+    private JsonHelper jsonHelper = new JsonHelper();
 
     public PageObject() {
 
@@ -37,6 +47,16 @@ public class PageObject {
                     .pollingEvery(Duration.ofMillis(DEFAULT_POLLING_IN_MILLS))
                     .ignoring(StaleElementReferenceException.class,NoSuchElementException.class);
         this.webDriverWait = new WebDriverWait(webDriver,DRIVER_WAIT_TIME);
+
+        try {
+            products = jsonHelper.loadProducts("products_url.json");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -52,6 +72,9 @@ public class PageObject {
         System.out.println("The value of WebDriver" +WebDriverHelper.getWebDriver());
 
         ((JavascriptExecutor) WebDriverHelper.getWebDriver()).executeScript("arguments[0].click()",element);
+
+
+
     }
 
     public void scrollIntoView(WebElement element) {
@@ -91,8 +114,46 @@ public class PageObject {
 
     public String getCurrentUrl(){
 
-        System.out.println("The current URL is === "+webDriver.getCurrentUrl());
+    System.out.println("The current URL is === "+webDriver.getCurrentUrl());
         return webDriver.getCurrentUrl();
     }
+
+    // Check if the element exists
+    public boolean isElementPresentByby(By by) {
+
+        LOG.info("Running: Is element present");
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
+        boolean exists =  webDriver.findElements(by).size()!=0;
+        webDriver.manage().timeouts().implicitlyWait(DRIVER_WAIT_TIME,TimeUnit.SECONDS);
+        LOG.info("Element " +by+"exists"+ exists);
+        return exists;
+
+    }
+
+    // Click on the element if exists
+
+    public void clickByElement(By by) {
+
+        if(isElementPresentByby(by)){
+            webDriver.findElement(by).click();
+        }
+        else {
+            LOG.info("Error finding the element" +by);
+            LOG.info("Page Titel" +getCurrentUrl());
+        }
+
+    }
+
+    public void timeUnitWait(int seconds) {
+
+        try {
+            TimeUnit.SECONDS.sleep(seconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
 }
