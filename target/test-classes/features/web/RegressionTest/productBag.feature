@@ -14,7 +14,7 @@ Scenario: Verify the Shopping bag and Order summary on Empty Bag
   And User click on Continue shopping button
   Then User is navigated to HomePage in same Window
 
-@Wip
+@Regression
 Scenario Outline: Verify the Edit Links for Products are working as expected
   When User navigate to "PDP" of "<product>"
   And I add 1 Products with "<product>" type

@@ -16,9 +16,10 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-@CucumberOptions(features = "src/test/resources/features", monochrome = true, plugin = {
+
+@CucumberOptions(features = "src/test/resources/features/web/RegressionTest", monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report/RunReport",
-        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"@Regression"})
+        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"@Regression1"})
 
 
 public class AbstractTestNGCucumberTestsCustom {
@@ -28,6 +29,7 @@ public class AbstractTestNGCucumberTestsCustom {
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass() throws Exception {
+
 
         Class claz = this.getClass();
         CucumberOptions options = this.getClass().getAnnotation(CucumberOptions.class);
@@ -46,7 +48,9 @@ public class AbstractTestNGCucumberTestsCustom {
         CucumberOptions newOptions = TypeFactory.annotation(CucumberOptions.class,annotationParameters);
         Map<Class<? extends Annotation>, Annotation > annotations = (Map<Class<? extends  Annotation> , Annotation>) annotationField.get(annotationDataField.get(claz));
         annotations.put(CucumberOptions.class, newOptions);
+
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+
 
     }
 @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")

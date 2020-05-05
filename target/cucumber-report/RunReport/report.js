@@ -1,38 +1,22 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/web/RegressionTest/productBag.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/web/RegressionTest/payment.feature");
 formatter.feature({
-  "name": "Product Bag features",
-  "description": "  As a customer\n  I want to be able to view my online bag\n  So that I can see products prior to procedding through checkout",
-  "keyword": "Feature"
-});
-formatter.scenarioOutline({
-  "name": "Verify the Edit Links for Products are working as expected",
-  "description": "",
-  "keyword": "Scenario Outline",
+  "name": "Place order as Guest user and make a payment",
+  "description": "  As a Customer\n  I want to know if my payment is successfull\n  so that i know if my order has been placed",
+  "keyword": "Feature",
   "tags": [
     {
-      "name": "@Wip"
+      "name": "@Regression1"
     }
   ]
 });
+formatter.scenarioOutline({
+  "name": "Verify user card details are not retained",
+  "description": "",
+  "keyword": "Scenario Outline"
+});
 formatter.step({
-  "name": "User navigate to \"PDP\" of \"\u003cproduct\u003e\"",
+  "name": "I fill user details",
   "keyword": "When "
-});
-formatter.step({
-  "name": "I add 1 Products with \"\u003cproduct\u003e\" type",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "User Click on Checkout Toast on PDP Page",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "Edit link for the product \"\u003cstatus\u003e\" be displayed",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "the User selects to remove all products in the bag",
-  "keyword": "And "
 });
 formatter.examples({
   "name": "",
@@ -41,20 +25,12 @@ formatter.examples({
   "rows": [
     {
       "cells": [
-        "product",
-        "status"
+        "section"
       ]
     },
     {
       "cells": [
-        "Image\u0026Edit",
-        "should"
-      ]
-    },
-    {
-      "cells": [
-        "NoEdit",
-        "should not"
+        "Personal Details"
       ]
     }
   ]
@@ -74,35 +50,26 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "Verify the Edit Links for Products are working as expected",
-  "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Wip"
-    }
-  ]
-});
 formatter.step({
-  "name": "User navigate to \"PDP\" of \"Image\u0026Edit\"",
+  "name": "User navigate to \"PDP\" of \"\u003cproduct\u003e\"",
   "keyword": "When "
 });
 formatter.match({
   "location": "CheckoutFooterSteps.userNavigateTo(String,String)"
 });
 formatter.result({
-  "status": "passed"
+  "error_message": "java.lang.RuntimeException: simple execption\u003cproduct\u003e\r\n\tat com.prolian.test.pageObjects.CheckoutFooter.lambda$clickOnNavigationItem$1(CheckoutFooter.java:37)\r\n\tat java.util.Optional.orElseThrow(Optional.java:290)\r\n\tat com.prolian.test.pageObjects.CheckoutFooter.clickOnNavigationItem(CheckoutFooter.java:37)\r\n\tat com.prolian.test.step_definitions.web.CheckoutFooterSteps.userNavigateTo(CheckoutFooterSteps.java:28)\r\n\tat ✽.User navigate to \"PDP\" of \"\u003cproduct\u003e\"(src/test/resources/features/web/RegressionTest/payment.feature:10)\r\n",
+  "status": "failed"
 });
 formatter.step({
-  "name": "I add 1 Products with \"Image\u0026Edit\" type",
+  "name": "I add 1 Products with \"\u003cproduct\u003e\" type",
   "keyword": "And "
 });
 formatter.match({
   "location": "ProductBagSteps.iAddProductsWithType(int,String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
   "name": "User Click on Checkout Toast on PDP Page",
@@ -112,101 +79,26 @@ formatter.match({
   "location": "ProductBagSteps.userClickOnCheckoutToastOnPDPPage()"
 });
 formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "Edit link for the product \"should\" be displayed",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "ProductBagSteps.editLinkForTheProductBeDisplayed(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the User selects to remove all products in the bag",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ProductBagSteps.theUserSelectsToRemoveAllProductsInTheBag()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.background({
-  "name": "",
-  "description": "",
-  "keyword": "Background"
-});
-formatter.step({
-  "name": "The User is on the selfRidges Homepage",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "NavigationSteps.theUserIsOnTheSelfRidgesHomepage()"
-});
-formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.scenario({
-  "name": "Verify the Edit Links for Products are working as expected",
+  "name": "Verify user card details are not retained",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@Wip"
+      "name": "@Regression1"
     }
   ]
 });
 formatter.step({
-  "name": "User navigate to \"PDP\" of \"NoEdit\"",
+  "name": "I fill user details",
   "keyword": "When "
 });
 formatter.match({
-  "location": "CheckoutFooterSteps.userNavigateTo(String,String)"
+  "location": "PaymentSteps.iFillUserDetails()"
 });
 formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I add 1 Products with \"NoEdit\" type",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ProductBagSteps.iAddProductsWithType(int,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User Click on Checkout Toast on PDP Page",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ProductBagSteps.userClickOnCheckoutToastOnPDPPage()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "Edit link for the product \"should not\" be displayed",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "ProductBagSteps.editLinkForTheProductBeDisplayed(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the User selects to remove all products in the bag",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ProductBagSteps.theUserSelectsToRemoveAllProductsInTheBag()"
-});
-formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 });
