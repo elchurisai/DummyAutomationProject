@@ -4,6 +4,7 @@ Feature: Place order as Guest user and make a payment
   I want to know if my payment is successfull
   so that i know if my order has been placed
 
+
 Background:
   Given The User is on the selfRidges Homepage
   When User navigate to "PDP" of "<product>"

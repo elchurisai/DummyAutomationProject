@@ -4,6 +4,7 @@ Feature: Place order as Guest user and make a payment
   I want to know if my payment is successfull
   so that i know if my order has been placed
 
+
 Background:
   Given The User is on the selfRidges Homepage
   When User navigate to "PDP" of "<product>"
@@ -13,11 +14,7 @@ Background:
 
   Scenario Outline: Verify user card details are not retained
   When I fill user details
-<<<<<<< HEAD
-  And I click on Continue To delivery Button
-=======
-  And I click on Continue to Delivery button
->>>>>>> a7067ca42e496bd44c3cd2b757faab25cda72722
+  And I click on Continue to delivery Button
   #And user should see Checkout Page
   #And I select the Delivery Type as "Delivery"
   #And User already has an address
