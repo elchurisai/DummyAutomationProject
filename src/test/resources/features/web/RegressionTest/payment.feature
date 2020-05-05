@@ -14,7 +14,11 @@ Background:
 
   Scenario Outline: Verify user card details are not retained
   When I fill user details
+<<<<<<< HEAD
   Source tree And I click On Continue to Delivery button
+=======
+  And I click On Continue to Delivery button
+>>>>>>> 1fb9b31c8565be5e8b46f69601822d510cebc838
   #And user should see Checkout Page
   #And I select the Delivery Type as "Delivery"
   #And User already has an address
