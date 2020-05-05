@@ -9,6 +9,7 @@
         <module name="SampleTesting" />
         <module name="DummyAutomationProject" />
         <module name="prolianAutomationFrameWork" />
+        <module name="githubuser2" />
       </profile>
     </annotationProcessing>
   </component>
