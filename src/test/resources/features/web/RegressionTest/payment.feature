@@ -14,7 +14,11 @@ Background:
 
   Scenario Outline: Verify user card details are not retained
   When I fill user details
+<<<<<<< HEAD
   And First User I click On continue to delivery button
+=======
+  And 2nd User I click On Continue to Delivery button
+>>>>>>> 8fd93b32706ffa07d125801295340e76e68a0b2d
   #And user should see Checkout Page
   #And I select the Delivery Type as "Delivery"
   #And User already has an address
