@@ -19,7 +19,7 @@ import java.util.Map;
 
 @CucumberOptions(features = "src/test/resources/features/web/RegressionTest", monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report/RunReport",
-        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"@Regression1"})
+        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"~@Regression1"})
 
 
 public class AbstractTestNGCucumberTestsCustom {
@@ -45,6 +45,7 @@ public class AbstractTestNGCucumberTestsCustom {
        annotationParameters.put("tags",originalTags);
         annotationParameters.put("plugin",options.plugin());
         annotationParameters.put("glue",options.glue());
+
         CucumberOptions newOptions = TypeFactory.annotation(CucumberOptions.class,annotationParameters);
         Map<Class<? extends Annotation>, Annotation > annotations = (Map<Class<? extends  Annotation> , Annotation>) annotationField.get(annotationDataField.get(claz));
         annotations.put(CucumberOptions.class, newOptions);
@@ -55,7 +56,7 @@ public class AbstractTestNGCucumberTestsCustom {
     }
 @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
 
-    public void runScenario(PickleEventWrapper pickleWrapper, CucumberFeatureWrapper featureWrapper) throws Throwable{
+    public void TestrunScenario(PickleEventWrapper pickleWrapper, CucumberFeatureWrapper featureWrapper) throws Throwable{
     testNGCucumberRunner.runScenario(pickleWrapper.getPickleEvent());
 }
 
