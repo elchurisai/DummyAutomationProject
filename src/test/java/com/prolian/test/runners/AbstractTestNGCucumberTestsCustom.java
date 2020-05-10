@@ -1,11 +1,17 @@
 package com.prolian.test.runners;
 
 import com.prolian.test.framework.helpers.Props;
+ import com.prolian.test.framework.helpers.TestContext;
+import com.relevantcodes.extentreports.ExtentTest;
 import cucumber.api.CucumberOptions;
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.PickleEventWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 import io.leangen.geantyref.TypeFactory;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -15,6 +21,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+import  com.prolian.test.framework.*;
 
 
 @CucumberOptions(features = "src/test/resources/features/web/RegressionTest", monochrome = true, plugin = {
@@ -22,10 +29,11 @@ import java.util.Map;
         "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"~@Regression1"})
 
 
-public class AbstractTestNGCucumberTestsCustom {
+public class AbstractTestNGCucumberTestsCustom  {
 
     private TestNGCucumberRunner testNGCucumberRunner;
-
+    public String scenarioName;
+    public ExtentTest extentTestReport;
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass() throws Exception {
@@ -53,11 +61,29 @@ public class AbstractTestNGCucumberTestsCustom {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 
 
+
+
     }
+
+    @Before
+
+public void beforeEveryScenario(Scenario scenario) {
+
+        ReportManager.getInstance();
+         scenarioName=scenario.getName();
+        System.out.println(scenarioName);
+      // TestContext.getInstance().setScenarioName(scenarioName);
+       extentTestReport= ReportManager.startTesting(scenarioName.toString(),"Scenario desciption");
+
+    }
+
+
+
 @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
 
     public void TestrunScenario(PickleEventWrapper pickleWrapper, CucumberFeatureWrapper featureWrapper) throws Throwable{
-    testNGCucumberRunner.runScenario(pickleWrapper.getPickleEvent());
+
+        testNGCucumberRunner.runScenario(pickleWrapper.getPickleEvent());
 }
 
 @DataProvider
@@ -75,12 +101,21 @@ public class AbstractTestNGCucumberTestsCustom {
 
     public void tearDownClass() {
 
-    if (testNGCucumberRunner==null) {
+        if (testNGCucumberRunner==null) {
     return;
     }
+
     testNGCucumberRunner.finish();
 }
 
+
+@After
+
+    public void afterEveryScenario() {
+
+        ReportManager.stopReport(extentTestReport);
+
+}
 
 }
 

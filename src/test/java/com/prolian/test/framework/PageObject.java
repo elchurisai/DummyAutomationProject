@@ -41,6 +41,7 @@ public class PageObject {
     public PageObject() {
 
         webDriver = WebDriverHelper.getWebDriver();
+
         PageFactory.initElements(new AjaxElementLocatorFactory(webDriver,10),this);
         this.wait = new FluentWait<>(WebDriverHelper.getWebDriver())
                     .withTimeout(Duration.ofSeconds(60))
@@ -121,6 +122,7 @@ public class PageObject {
     // Check if the element exists
     public boolean isElementPresentByby(By by) {
 
+
         LOG.info("Running: Is element present");
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         boolean exists =  webDriver.findElements(by).size()!=0;
@@ -153,6 +155,7 @@ public class PageObject {
         }
 
     }
+
 
 
 

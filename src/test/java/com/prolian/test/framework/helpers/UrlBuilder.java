@@ -1,6 +1,7 @@
 package com.prolian.test.framework.helpers;
 
 import com.prolian.test.framework.PageObject;
+import com.prolian.test.framework.ReportManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,8 @@ public class UrlBuilder  {
     private static final String RUN_CONFIG_PROPERTIES = "/environment.properties";
     private TestContext testContext = TestContext.getInstance();
 
+    private ReportManager reportManager = new ReportManager();
+
 
 
 
@@ -44,6 +47,7 @@ public class UrlBuilder  {
     public void goToHomePage() {
 
         System.out.println("This is on Home Page ");
+
         if (!(WebDriverHelper.getSpecificWebDriver(testContext.getDevice()).getCurrentUrl().equalsIgnoreCase(testContext.getBaseURL().toString()))) {
             WebDriverHelper.getWebDriver().navigate().to(testContext.getBaseURL());
             System.out.println(WebDriverHelper.getWebDriver().getTitle());

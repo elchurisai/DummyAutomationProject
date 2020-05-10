@@ -1,5 +1,7 @@
 package com.prolian.test.framework.helpers;
 
+import com.prolian.test.framework.ReportManager;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.units.qual.C;
@@ -37,6 +39,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
     private static String SELENIUM_HOST = testContext.getSELENIUM_HOST();
     private static  String SELENIUM_PORT = testContext.getSELENIUM_PORT();
     public static String DEVICE = testContext.getDevice();
+
 
     private WebDriverHelper() {
         super(REAL_DRIVER);

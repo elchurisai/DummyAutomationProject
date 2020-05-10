@@ -1,6 +1,7 @@
 package com.prolian.test.step_definitions.web;
 
 import com.prolian.test.framework.PageObject;
+import com.prolian.test.framework.ReportManager;
 import com.prolian.test.framework.helpers.WebDriverHelper;
 import com.prolian.test.pageObjects.CheckoutFooter;
 import com.prolian.test.pageObjects.CustomerBagPage;
@@ -66,6 +67,7 @@ public class ProductBagSteps extends PageObject {
         // Write code here that turns the phrase above into concrete actions
         // Code to add the product to the Bag with only 1 product as specified. The Code for number of products is not displayed ...
 
+        ReportManager.reportInfo("Verify the products");
         customerBagPage.addProductsToBag();
         timeUnitWait(2);
 
@@ -74,21 +76,28 @@ public class ProductBagSteps extends PageObject {
     @And("^User Click on Checkout Toast on PDP Page$")
     public void userClickOnCheckoutToastOnPDPPage() {
 
+        ReportManager.reportInfo("User Click on Checkout Toast on PDP Page");
         customerBagPage.clickOnCheckOutToastLink();
     }
 
     @Then("^Edit link for the product \"([^\"]*)\" be displayed$")
     public void editLinkForTheProductBeDisplayed(String option)  {
         // Write code here that turns the phrase above into concrete actions
+
+        ReportManager.reportInfo("Edit link for the product");
         Boolean actualValidationMessage = customerBagPage.isEditLinkDisplayed();
 
         if (option.equalsIgnoreCase("should")) {
 
             MatcherAssert.assertThat("Edit link is not displayed for product ",actualValidationMessage,is(true));
+            ReportManager.testPassed("Edit Link is not displayed for product");
+
         }
         else if(option.equalsIgnoreCase("should not")) {
 
             MatcherAssert.assertThat("Edit link is displayed for product but it shouldn't be displayed",actualValidationMessage,is(false));
+            ReportManager.testFailed("Edit link is displayed for product but it should n't displayed");
+
         }
 
     }

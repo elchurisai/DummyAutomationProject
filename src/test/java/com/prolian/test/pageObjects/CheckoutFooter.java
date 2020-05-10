@@ -19,6 +19,7 @@ public class CheckoutFooter extends PageObject {
 
     public void clickOnNavigationItem(String item,String productType) {
 
+
         switch (item.toUpperCase()) {
 
             case "PDP":
