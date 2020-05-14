@@ -161,6 +161,13 @@ public class PageObject {
         return element.size() < 1 ? false : true ;
     }
 
+    protected WebElement getElementFromOptions(List<WebElement> elements,String option) {
+
+        return elements.stream()
+                .filter(delivery->delivery.getAttribute("value").equalsIgnoreCase(option)).findAny()
+                .orElseThrow(()-> new RuntimeException("No Element found for given option" +option ) );
+
+    }
 
 
 }
