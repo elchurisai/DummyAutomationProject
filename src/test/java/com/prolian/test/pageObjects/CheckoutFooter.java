@@ -13,6 +13,7 @@ public class CheckoutFooter extends PageObject {
 
     private GlobalHeaderPage globalHeaderPage = PageFactory.initElements(WebDriverHelper.getWebDriver(),GlobalHeaderPage.class);
     private By acceptCookies = By.xpath("//a[contains(text(),'ACCEPT COOKIES')]");
+    private By btContinueShopping =  By.cssSelector(".cta.cta-icon-after");
 
 
     //    private CustomerBagPage customerBagPage = PageFactory.initElements(WebDriverHelper.getWebDriver(),CustomerBagPage.class);
@@ -42,6 +43,11 @@ public class CheckoutFooter extends PageObject {
              //   WebDriverHelper.getWebDriver().navigate().to(TestContext.getInstance().getBaseURL().toString()+"/cat/horizn-studios-transparent-liquids-bag_R00061060/");
 
                 WebDriverHelper.getWebDriver().navigate().to(TestContext.getInstance().getBaseURL().toString()+products.stream().filter(products1 -> products1.getType().equalsIgnoreCase(productType)).findAny().orElseThrow(() -> new RuntimeException("simple execption" + productType)).getProductURL());
+
+
+                if (isElementPresentByby(btContinueShopping)){
+                    clickByElement(btContinueShopping);
+                }
 
                 break;
             case "HOME":

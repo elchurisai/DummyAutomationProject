@@ -23,10 +23,16 @@ import java.util.HashMap;
 import java.util.Map;
 import  com.prolian.test.framework.*;
 
+/**
+ *
+ * This Class is abstract class which behaves as a running class
+ * @Author -
+ *
+ */
 
 @CucumberOptions(features = "src/test/resources/features/web/RegressionTest", monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report/RunReport",
-        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"~@Regression1"})
+        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"@wip"})
 
 
 public class AbstractTestNGCucumberTestsCustom  {

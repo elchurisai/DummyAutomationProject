@@ -156,6 +156,10 @@ public class PageObject {
 
     }
 
+    public Boolean isElementDisplayed(List<WebElement> element) {
+
+        return element.size() < 1 ? false : true ;
+    }
 
 
 

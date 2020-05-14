@@ -14,16 +14,12 @@ public class PaymentSteps extends PageObject {
             this.pageObject=pageObject;
         }
 
-    @When("^I fill user details$")
-    public void iFillUserDetails() {
-        System.out.println("I fill user details");
-         pageObject.getCurrentUrl();
-    }
 
     @And("^I click on Continue to Delivery button$")
     public void iClickOnContinueToDeliveryButton() {
 
         System.out.println("I click on Continue to Delivery button");
+
 
 
     }

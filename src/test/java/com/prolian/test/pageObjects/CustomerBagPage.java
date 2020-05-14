@@ -28,7 +28,7 @@ public class CustomerBagPage extends PageObject {
     @FindBy(css = "#button--checkout")
     private WebElement continueShoppingButton;
 
-    @FindBy(css = ".c-filter__atb.o-button.--cta" )
+    @FindBy(xpath = "//button[contains(text(),'Add to bag')]")
     private WebElement addToBagButton;
 
     @FindBy(css = ".c-notifications__link")
@@ -39,6 +39,11 @@ public class CustomerBagPage extends PageObject {
 
     @FindBy(css = ".link--icon.basket-product__remove.removeItemcta")
     private List<WebElement> removeLink;
+
+    @FindBy(id = "button--checkout")
+    private WebElement secureCheckout;
+
+
 
     private By acceptCookies = By.xpath("//a[contains(text(),'ACCEPT COOKIES')]");
 
@@ -65,8 +70,18 @@ public class CustomerBagPage extends PageObject {
 
     }
 
+    public void clickOnSecureCheckoutButton(){
+
+        movetoElementAndClickUsingJS(waitForElementToBeDisplay(secureCheckout));
+    }
+
+
 
     public void addProductsToBag() {
+
+
+       // add-to-bag-cta pdp-add-to-bag-cta
+
 
         movetoElementAndClickUsingJS(waitForElementToBeDisplay(addToBagButton));
     }
@@ -124,4 +139,7 @@ public class CustomerBagPage extends PageObject {
        return waitForAllElementsToBeDisplay(removeLink).stream().
                 filter(element -> element.getAttribute("title").equalsIgnoreCase("Remove")).collect(Collectors.toList());
    }
+
+
+
 }

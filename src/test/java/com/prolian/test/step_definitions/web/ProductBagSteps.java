@@ -108,4 +108,12 @@ public class ProductBagSteps extends PageObject {
         customerBagPage.clickOnRemoveAllProducts();
 
     }
+
+    @And("^I click on Secure checkout button in Shooping Bag Page$")
+    public void iClickOnSecureCheckoutButtonInShoopingBagPage() {
+
+            customerBagPage.clickOnSecureCheckoutButton();
+
+
+    }
 }

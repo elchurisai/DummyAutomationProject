@@ -10,6 +10,7 @@ import org.apache.commons.lang3.SystemUtils;
 
 
 import javax.xml.crypto.Data;
+import java.io.File;
 import java.util.Date;
 
 public class ReportManager
@@ -26,6 +27,8 @@ public class ReportManager
 
        if (extentReports==null) {
            extentReports = new ExtentReports(extentReportPath, false, DisplayOrder.OLDEST_FIRST);
+
+           extentReports.loadConfig(new File(SystemUtils.getUserDir()+"/src/main/resources/profiles.REPORT/configreport.xml"));
        }
         return extentReports;
     }
