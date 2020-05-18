@@ -1,5 +1,10 @@
 package com.prolian.test.models.cucumber;
 
+import lombok.Data;
+
+// Avoid getter and setter methods we use lombok
+
+@Data
 public class UserInformationModel {
 
 

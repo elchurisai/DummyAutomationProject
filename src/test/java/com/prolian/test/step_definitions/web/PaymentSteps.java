@@ -15,12 +15,5 @@ public class PaymentSteps extends PageObject {
         }
 
 
-    @And("^I click on Continue to Delivery button$")
-    public void iClickOnContinueToDeliveryButton() {
 
-        System.out.println("I click on Continue to Delivery button");
-
-
-
-    }
 }

@@ -3,6 +3,7 @@ package com.prolian.test.pageObjects;
 import com.prolian.test.framework.PageObject;
 import com.prolian.test.framework.helpers.DataGenerator;
 import com.prolian.test.framework.helpers.WebDriverHelper;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,6 +14,7 @@ public class GuestCheckoutSteps extends PageObject {
 
     private RegistrationPage registrationPage = PageFactory.initElements(WebDriverHelper.getWebDriver(),RegistrationPage.class);
 
+    private CustomerBagPage customerBagPage = PageFactory.initElements(WebDriverHelper.getWebDriver(),CustomerBagPage.class);
    DataGenerator dataGenerator = DataGenerator.getInstance();
 
 
@@ -27,6 +29,20 @@ public class GuestCheckoutSteps extends PageObject {
             registrationPage.fillUserDetailsForm(dataGenerator.getUserInfo());
 
         }
+    }
+
+    @And("^I click on Continue to Delivery button$")
+    public void iClickOnContinueToDeliveryButton() {
+
+        System.out.println("I click on Continue to Delivery button");
+
+        if (!deliveryAddressPage.isDeliveryTypeInfoDisplayed()) {
+
+            registrationPage.clickOnContinueToDeliveryButton();
+        }
+
+//        customerBagPage.waitUntilSpinnerDisappears();
+
     }
 
 

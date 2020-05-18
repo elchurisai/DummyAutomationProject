@@ -8,13 +8,16 @@ import java.util.List;
 
 public class DeliveryAddressPage extends PageObject {
 
-    @FindBy(id = "deliveryChoices")
-    private List<WebElement> deliveryTypes;
+    @FindBy(css = ".col-xs-9 .heading--step.mb-0.heading--small")
+    private WebElement deliveryTypes;
 
 
     public boolean isDeliveryTypeInfoDisplayed(){
 
-        return isElementDisplayed(deliveryTypes);
+        System.out.println("--------what value-----" +texttoBePresentInElementValue(deliveryTypes,"1. Delivery"));
+
+            return texttoBePresentInElementValue(deliveryTypes,"1. Delivery");
+
     }
 
 

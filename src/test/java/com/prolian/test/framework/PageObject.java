@@ -10,6 +10,7 @@ import org.json.simple.parser.ParseException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -161,13 +162,58 @@ public class PageObject {
         return element.size() < 1 ? false : true ;
     }
 
+    public Boolean texttoBePresentInElementValue(final WebElement element,final String text) {
+
+        System.out.println("The value of element" +element.getText());
+
+        if (element.getText().contains(text)){
+            return true;
+        }
+        return false;
+
+    }
+
+
     protected WebElement getElementFromOptions(List<WebElement> elements,String option) {
 
+        System.out.println(elements.stream().filter(element -> Boolean.parseBoolean(element.getAttribute("value"))));
+
         return elements.stream()
-                .filter(delivery->delivery.getAttribute("value").equalsIgnoreCase(option)).findAny()
+                .filter(delivery->delivery.getText().equalsIgnoreCase(option)).findAny()
                 .orElseThrow(()-> new RuntimeException("No Element found for given option" +option ) );
 
     }
 
+    protected WebElement getElementFromOptionsValue(List<WebElement> elements,String option) {
+
+        for (WebElement element : elements) {
+
+            System.out.println(element.getAttribute("value"));
+        }
+
+        return  elements.stream()
+                .filter(delivery->delivery.getAttribute("value").equalsIgnoreCase(option)).findAny()
+                .orElseThrow(()-> new RuntimeException("No Element with value for given option" +option));
+    }
+
+
+
+
+    public void  clearTextField(WebElement element) {
+
+        element.sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+
+    }
+    public void  enterText(WebElement element,String text) {
+
+        visibilityOf(element);
+        element.sendKeys(text);
+
+    }
+
+    public WebElement visibilityOf(final WebElement element) {
+
+        return waiters.waitForElementToBeDisplay(element);
+    }
 
 }

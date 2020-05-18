@@ -44,7 +44,8 @@ public class DataGenerator {
                 "1");
 
 
-    }
+
+        }
 
     public void deletePerson() {
         if (this.userInformationModel!=null){

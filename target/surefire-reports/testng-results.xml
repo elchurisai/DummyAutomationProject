@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[<div "result">The User is on the selfRidges Homepage (PASSED : 11s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">User navigate to &quot;PDP&quot; of &quot;C&amp;C&quot; (PASSED : 5s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I add 1 Products with &quot;C&amp;C&quot; type (PASSED : 2s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">User navigate to &quot;PDP&quot; of &quot;NoEdit&quot; (PASSED : 2s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I add 1 Products with &quot;NoEdit&quot; type (PASSED : 2s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">User Click on Checkout Toast on PDP Page (PASSED : 3s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I click on Secure checkout button in Shooping Bag Page (PASSED : 1s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I click on Checkout Now Button in Sign-in Page (PASSED : 1s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I fill user details (PASSED : 0s)</div>]]>
+    </line>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="33687" started-at="2020-05-14T14:51:52 BST" finished-at="2020-05-14T14:52:26 BST">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTestsCustom.TestrunScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.prolian.test.runners.AbstractTestNGCucumberTestsCustom@887af79]" name="TestrunScenario" class="com.prolian.test.runners.AbstractTestNGCucumberTestsCustom"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Surefire test" duration-ms="33687" started-at="2020-05-14T14:51:52 BST" finished-at="2020-05-14T14:52:26 BST">
+      <class name="com.prolian.test.runners.AbstractTestNGCucumberTestsCustom">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.prolian.test.runners.AbstractTestNGCucumberTestsCustom@887af79]" name="setUpClass" is-config="true" duration-ms="527" started-at="2020-05-14T14:51:52 BST" finished-at="2020-05-14T14:51:53 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="TestrunScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.prolian.test.runners.AbstractTestNGCucumberTestsCustom@887af79]" name="TestrunScenario" duration-ms="32973" started-at="2020-05-14T14:51:53 BST" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-05-14T14:52:26 BST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["C&C pre-selected based on products choosen"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Delivery Methods features"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<div "result">The User is on the selfRidges Homepage (PASSED : 11s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">User navigate to &quot;PDP&quot; of &quot;C&amp;C&quot; (PASSED : 5s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I add 1 Products with &quot;C&amp;C&quot; type (PASSED : 2s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">User navigate to &quot;PDP&quot; of &quot;NoEdit&quot; (PASSED : 2s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I add 1 Products with &quot;NoEdit&quot; type (PASSED : 2s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">User Click on Checkout Toast on PDP Page (PASSED : 3s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I click on Secure checkout button in Shooping Bag Page (PASSED : 1s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I click on Checkout Now Button in Sign-in Page (PASSED : 1s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I fill user details (PASSED : 0s)</div>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TestrunScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.prolian.test.runners.AbstractTestNGCucumberTestsCustom@887af79]" name="tearDownClass" is-config="true" duration-ms="57" started-at="2020-05-14T14:52:26 BST" finished-at="2020-05-14T14:52:26 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.prolian.test.runners.AbstractTestNGCucumberTestsCustom -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

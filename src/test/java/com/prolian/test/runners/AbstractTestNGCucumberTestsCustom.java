@@ -1,8 +1,10 @@
 package com.prolian.test.runners;
 
+import com.prolian.test.framework.helpers.DataGenerator;
 import com.prolian.test.framework.helpers.Props;
  import com.prolian.test.framework.helpers.TestContext;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import cucumber.api.CucumberOptions;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -40,6 +42,7 @@ public class AbstractTestNGCucumberTestsCustom  {
     private TestNGCucumberRunner testNGCucumberRunner;
     public String scenarioName;
     public ExtentTest extentTestReport;
+    DataGenerator dataGenerator = DataGenerator.getInstance();
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass() throws Exception {
@@ -80,6 +83,8 @@ public void beforeEveryScenario(Scenario scenario) {
         System.out.println(scenarioName);
       // TestContext.getInstance().setScenarioName(scenarioName);
        extentTestReport= ReportManager.startTesting(scenarioName.toString(),"Scenario desciption");
+        extentTestReport.log(LogStatus.INFO,"The Set person is called");
+       dataGenerator.setPerson();
 
     }
 
@@ -120,7 +125,8 @@ public void beforeEveryScenario(Scenario scenario) {
     public void afterEveryScenario() {
 
         ReportManager.stopReport(extentTestReport);
-
+        extentTestReport.log(LogStatus.INFO,"The Delete person is called");
+        dataGenerator.deletePerson();
 }
 
 }
