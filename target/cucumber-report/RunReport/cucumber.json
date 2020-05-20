@@ -1,0 +1,219 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 8,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 10911812600,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "The User is on the selfRidges Homepage",
+            "match": {
+              "location": "NavigationSteps.theUserIsOnTheSelfRidgesHomepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5051396800,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User navigate to \"PDP\" of \"C\u0026C\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "PDP",
+                  "offset": 18
+                },
+                {
+                  "val": "C\u0026C",
+                  "offset": 27
+                }
+              ],
+              "location": "CheckoutFooterSteps.userNavigateTo(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2411668700,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I add 1 Products with \"C\u0026C\" type",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 6
+                },
+                {
+                  "val": "C\u0026C",
+                  "offset": 23
+                }
+              ],
+              "location": "ProductBagSteps.iAddProductsWithType(int,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2296810000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "User navigate to \"PDP\" of \"NoEdit\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "PDP",
+                  "offset": 18
+                },
+                {
+                  "val": "NoEdit",
+                  "offset": 27
+                }
+              ],
+              "location": "CheckoutFooterSteps.userNavigateTo(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2379629200,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I add 1 Products with \"NoEdit\" type",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 6
+                },
+                {
+                  "val": "NoEdit",
+                  "offset": 23
+                }
+              ],
+              "location": "ProductBagSteps.iAddProductsWithType(int,String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 1331364500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.beforeEveryScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "C\u0026C pre-selected based on products choosen",
+        "description": "",
+        "id": "delivery-methods-features;c\u0026c-pre-selected-based-on-products-choosen",
+        "after": [
+          {
+            "result": {
+              "duration": 450682400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.afterEveryScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4044552000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "User Click on Checkout Toast on PDP Page",
+            "match": {
+              "location": "ProductBagSteps.userClickOnCheckoutToastOnPDPPage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 977074200,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I click on Secure checkout button in Shooping Bag Page",
+            "match": {
+              "location": "ProductBagSteps.iClickOnSecureCheckoutButtonInShoopingBagPage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1688468700,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I click on Checkout Now Button in Sign-in Page",
+            "match": {
+              "location": "SigninSteps.iClickOnCheckoutNowButtonInSignInPage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3192556000,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I fill user details",
+            "match": {
+              "location": "GuestCheckoutSteps.i_fill_user_details()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 31885187700,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I click on Continue to Delivery button",
+            "match": {
+              "location": "GuestCheckoutSteps.iClickOnContinueToDeliveryButton()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@wip"
+          }
+        ]
+      }
+    ],
+    "name": "Delivery Methods features",
+    "description": "  As a customer\n  I want to able to view my online Bag\n  So that I can see products prior to proceeding through checkout",
+    "id": "delivery-methods-features",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/web/RegressionTest/deliveryMethods.feature",
+    "tags": []
+  }
+]

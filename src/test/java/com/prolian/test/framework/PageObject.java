@@ -216,4 +216,12 @@ public class PageObject {
         return waiters.waitForElementToBeDisplay(element);
     }
 
+    public Boolean waitForElementToDisappear(WebElement element) {
+
+        return waiters.waitForElementToDisappear(element);
+    }
+
+
+
+
 }

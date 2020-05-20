@@ -41,7 +41,7 @@ public class GuestCheckoutSteps extends PageObject {
             registrationPage.clickOnContinueToDeliveryButton();
         }
 
-//        customerBagPage.waitUntilSpinnerDisappears();
+        customerBagPage.waitUntilSpinnerDisappears();
 
     }
 

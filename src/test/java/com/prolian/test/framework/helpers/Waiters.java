@@ -42,4 +42,23 @@ public class Waiters {
         System.out.println("The element displayed????"+element+"The expected condtion is"+ExpectedConditions.visibilityOf(element));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+
+    public Boolean waitForElementToDisappear(WebElement element) {
+
+        FluentWait<WebDriver> wait =
+            new FluentWait<>(driver).withTimeout(Duration.ofSeconds(Integer.valueOf("100")))
+                    .pollingEvery(Duration.ofMillis(DEFAULT_POLLING_IN_MILLS));
+                try {
+                    return wait.until(ExpectedConditions.invisibilityOf(element));
+                }
+                catch (NoSuchElementException e) {
+                    System.out.println("In the catch block");
+                    return true;
+
+                }
+
+
+
+    }
 }

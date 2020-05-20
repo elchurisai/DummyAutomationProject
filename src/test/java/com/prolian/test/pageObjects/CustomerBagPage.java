@@ -43,6 +43,8 @@ public class CustomerBagPage extends PageObject {
     @FindBy(id = "button--checkout")
     private WebElement secureCheckout;
 
+    @FindBy(xpath = "//div[@class='js-spinner on']")
+    private WebElement spinnerOn;
 
 
     private By acceptCookies = By.xpath("//a[contains(text(),'ACCEPT COOKIES')]");
@@ -140,6 +142,15 @@ public class CustomerBagPage extends PageObject {
                 filter(element -> element.getAttribute("title").equalsIgnoreCase("Remove")).collect(Collectors.toList());
    }
 
+
+   public void waitUntilSpinnerDisappears(){
+
+       System.out.println("@@@@@@@@@@@@" +spinnerOn.getSize());
+       System.out.println("@@@@@@@@@@@@" +spinnerOn.isDisplayed());
+       waitForElementToDisappear(spinnerOn);
+
+
+   }
 
 
 }

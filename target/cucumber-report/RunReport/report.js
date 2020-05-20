@@ -106,3 +106,23 @@ formatter.step({
   "name": "I fill user details",
   "keyword": "When "
 });
+formatter.match({
+  "location": "GuestCheckoutSteps.i_fill_user_details()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "I click on Continue to Delivery button",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "GuestCheckoutSteps.iClickOnContinueToDeliveryButton()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+});

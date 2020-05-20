@@ -11,6 +11,8 @@ public class DeliveryAddressPage extends PageObject {
     @FindBy(css = ".col-xs-9 .heading--step.mb-0.heading--small")
     private WebElement deliveryTypes;
 
+    @FindBy(css = "#Home_Delivery_Method")
+    private List<WebElement> deliveryDetails;
 
     public boolean isDeliveryTypeInfoDisplayed(){
 
@@ -18,6 +20,12 @@ public class DeliveryAddressPage extends PageObject {
 
             return texttoBePresentInElementValue(deliveryTypes,"1. Delivery");
 
+    }
+
+    public Boolean isDeliveryInforDisplayed() {
+
+
+                return isElementDisplayed(deliveryDetails);
     }
 
 
