@@ -27,7 +27,7 @@ public class otherCountryAndLanguageSteps {
         // Write code here that turns the phrase above into concrete actions
 
       //  System.out.println("~~~~~~~~~" +currency);
-     //   localCurrencyAndLanguage.selectLocalCurrency(currency);
+       localCurrencyAndLanguage.selectLocalCurrency(currency);
 
         localCurrencyAndLanguage.selectLanguage(language);
 
