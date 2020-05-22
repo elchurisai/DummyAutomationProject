@@ -14,6 +14,9 @@ public class DeliveryAddressPage extends PageObject {
     @FindBy(css = "#Home_Delivery_Method")
     private List<WebElement> deliveryDetails;
 
+    @FindBy(name = "selectDeliveryType")
+    private WebElement chooseDeliveryMethod;
+
     public boolean isDeliveryTypeInfoDisplayed(){
 
         System.out.println("--------what value-----" +texttoBePresentInElementValue(deliveryTypes,"1. Delivery"));
@@ -27,6 +30,8 @@ public class DeliveryAddressPage extends PageObject {
 
                 return isElementDisplayed(deliveryDetails);
     }
+
+
 
 
 

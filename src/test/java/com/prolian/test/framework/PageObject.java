@@ -4,14 +4,17 @@ import com.prolian.test.framework.helpers.JsonHelper;
 import com.prolian.test.framework.helpers.Products;
 import com.prolian.test.framework.helpers.Waiters;
 import com.prolian.test.framework.helpers.WebDriverHelper;
+import cucumber.api.java.eo.Se;
 import lombok.Getter;
 import lombok.Setter;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +57,7 @@ public class PageObject {
             products = jsonHelper.loadProducts("products_url.json");
         } catch (ParseException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+         } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -147,6 +150,12 @@ public class PageObject {
 
     }
 
+
+
+
+
+
+
     public void timeUnitWait(int seconds) {
 
         try {
@@ -221,7 +230,59 @@ public class PageObject {
         return waiters.waitForElementToDisappear(element);
     }
 
+// Select the values from the drop down
 
+    public  void selectValueFromDropDownByWebElement(List<WebElement> element,String dropDownTxt) {
+
+
+        for (WebElement webElement : element) {
+
+        //    webElement.click();
+            System.out.println(webElement.getText());
+
+            if (webElement.getText().contains(dropDownTxt)) {
+
+                System.out.println("Inside the drop down selected");
+                webElement.click();
+                break;
+            }
+
+         /*    List<WebElement> Litemp = webElement.findElements(By.cssSelector(".content .js-custom-select-wrapper li"));
+            for (WebElement webElement1 : Litemp) {
+
+
+                if (webElement1.getText().contains(dropDownTxt)) {
+
+                    webElement1.click();
+                    break;
+                }
+
+            }*/
+
+        }
+
+    }
+
+    public  void clickValueFromDropDownByWebElement(List<WebElement> element,String dropDownTxt) {
+
+
+        for (WebElement webElement : element) {
+               webElement.click();
+               break;
+        }
+
+    }
+
+
+
+    public void enterTextUsingJs(WebElement element,String text) {
+
+        visibilityOf(element);
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        clickUsingJS(element);
+        js.executeScript("arguments[0].value='" +text+"';",element);
+
+    }
 
 
 }

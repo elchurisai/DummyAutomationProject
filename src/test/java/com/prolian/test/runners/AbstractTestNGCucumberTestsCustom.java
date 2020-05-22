@@ -34,7 +34,7 @@ import  com.prolian.test.framework.*;
 
 @CucumberOptions(features = "src/test/resources/features/web/RegressionTest", monochrome = true, plugin = {
         "pretty", "html:target/cucumber-report/RunReport",
-        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"@wip"})
+        "json:target/cucumber-report/RunReport/cucumber.json"},glue = "com.prolian.test",tags = {"@Regression"})
 
 
 public class AbstractTestNGCucumberTestsCustom  {

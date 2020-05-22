@@ -1,9 +1,9 @@
 [
   {
-    "line": 2,
+    "line": 1,
     "elements": [
       {
-        "line": 8,
+        "line": 6,
         "name": "",
         "description": "",
         "type": "background",
@@ -11,31 +11,63 @@
         "steps": [
           {
             "result": {
-              "duration": 10911812600,
+              "duration": 10404069700,
               "status": "passed"
             },
-            "line": 9,
+            "line": 7,
             "name": "The User is on the selfRidges Homepage",
             "match": {
               "location": "NavigationSteps.theUserIsOnTheSelfRidgesHomepage()"
             },
             "keyword": "Given "
-          },
+          }
+        ]
+      },
+      {
+        "before": [
           {
             "result": {
-              "duration": 5051396800,
+              "duration": 1080705300,
               "status": "passed"
             },
-            "line": 10,
-            "name": "User navigate to \"PDP\" of \"C\u0026C\"",
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.beforeEveryScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 10,
+        "name": "Verify the Shopping bag and Order summary on Empty Bag",
+        "description": "",
+        "id": "product-bag-features;verify-the-shopping-bag-and-order-summary-on-empty-bag",
+        "after": [
+          {
+            "result": {
+              "duration": 660977300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.afterEveryScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1443674400,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User navigate to \"Bag\" of \"\u003cproduct\u003e\"",
             "match": {
               "arguments": [
                 {
-                  "val": "PDP",
+                  "val": "Bag",
                   "offset": 18
                 },
                 {
-                  "val": "C\u0026C",
+                  "val": "\u003cproduct\u003e",
                   "offset": 27
                 }
               ],
@@ -45,11 +77,145 @@
           },
           {
             "result": {
-              "duration": 2411668700,
+              "duration": 60226917900,
               "status": "passed"
             },
-            "line": 11,
-            "name": "I add 1 Products with \"C\u0026C\" type",
+            "line": 12,
+            "name": "Content sections Delivery and Returns should not be visible",
+            "match": {
+              "arguments": [
+                {
+                  "val": "should not",
+                  "offset": 38
+                }
+              ],
+              "location": "ProductBagSteps.contentSectionsDeliveryAndReturnsShouldNotBeVisible(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 185570800,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I should see empty shoping bag",
+            "match": {
+              "location": "ProductBagSteps.iShouldSeeEmptyShopingBag()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3164436700,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "User click on Continue shopping button",
+            "match": {
+              "location": "ProductBagSteps.userClickOnContinueShoppingButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 327404300,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User is navigated to HomePage in same Window",
+            "match": {
+              "location": "HomePageSteps.userIsNavigatedToHomePageInSameWindow()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Regression"
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 19272000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The User is on the selfRidges Homepage",
+            "match": {
+              "location": "NavigationSteps.theUserIsOnTheSelfRidgesHomepage()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 114198000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.beforeEveryScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 26,
+        "name": "Verify the Edit Links for Products are working as expected",
+        "description": "",
+        "id": "product-bag-features;verify-the-edit-links-for-products-are-working-as-expected;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 91296900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.afterEveryScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2348053400,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "User navigate to \"PDP\" of \"Image\u0026Edit\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "PDP",
+                  "offset": 18
+                },
+                {
+                  "val": "Image\u0026Edit",
+                  "offset": 27
+                }
+              ],
+              "location": "CheckoutFooterSteps.userNavigateTo(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2459561900,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I add 1 Products with \"Image\u0026Edit\" type",
             "match": {
               "arguments": [
                 {
@@ -57,7 +223,7 @@
                   "offset": 6
                 },
                 {
-                  "val": "C\u0026C",
+                  "val": "Image\u0026Edit",
                   "offset": 23
                 }
               ],
@@ -67,10 +233,110 @@
           },
           {
             "result": {
-              "duration": 2296810000,
+              "duration": 2920603000,
               "status": "passed"
             },
-            "line": 12,
+            "line": 21,
+            "name": "User Click on Checkout Toast on PDP Page",
+            "match": {
+              "location": "ProductBagSteps.userClickOnCheckoutToastOnPDPPage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 20075932800,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "Edit link for the product \"should\" be displayed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "should",
+                  "offset": 27
+                }
+              ],
+              "location": "ProductBagSteps.editLinkForTheProductBeDisplayed(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 249992400,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "the User selects to remove all products in the bag",
+            "match": {
+              "location": "ProductBagSteps.theUserSelectsToRemoveAllProductsInTheBag()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Regression"
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2809778700,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "The User is on the selfRidges Homepage",
+            "match": {
+              "location": "NavigationSteps.theUserIsOnTheSelfRidgesHomepage()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 132320700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.beforeEveryScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Verify the Edit Links for Products are working as expected",
+        "description": "",
+        "id": "product-bag-features;verify-the-edit-links-for-products-are-working-as-expected;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 71134300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "AbstractTestNGCucumberTestsCustom.afterEveryScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2209158700,
+              "status": "passed"
+            },
+            "line": 19,
             "name": "User navigate to \"PDP\" of \"NoEdit\"",
             "match": {
               "arguments": [
@@ -89,10 +355,10 @@
           },
           {
             "result": {
-              "duration": 2379629200,
+              "duration": 2364950400,
               "status": "passed"
             },
-            "line": 13,
+            "line": 20,
             "name": "I add 1 Products with \"NoEdit\" type",
             "match": {
               "arguments": [
@@ -108,45 +374,13 @@
               "location": "ProductBagSteps.iAddProductsWithType(int,String)"
             },
             "keyword": "And "
-          }
-        ]
-      },
-      {
-        "before": [
+          },
           {
             "result": {
-              "duration": 1331364500,
+              "duration": 3289575400,
               "status": "passed"
             },
-            "match": {
-              "location": "AbstractTestNGCucumberTestsCustom.beforeEveryScenario(Scenario)"
-            }
-          }
-        ],
-        "line": 16,
-        "name": "C\u0026C pre-selected based on products choosen",
-        "description": "",
-        "id": "delivery-methods-features;c\u0026c-pre-selected-based-on-products-choosen",
-        "after": [
-          {
-            "result": {
-              "duration": 450682400,
-              "status": "passed"
-            },
-            "match": {
-              "location": "AbstractTestNGCucumberTestsCustom.afterEveryScenario()"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 4044552000,
-              "status": "passed"
-            },
-            "line": 17,
+            "line": 21,
             "name": "User Click on Checkout Toast on PDP Page",
             "match": {
               "location": "ProductBagSteps.userClickOnCheckoutToastOnPDPPage()"
@@ -155,65 +389,47 @@
           },
           {
             "result": {
-              "duration": 977074200,
+              "duration": 52079786700,
               "status": "passed"
             },
-            "line": 18,
-            "name": "I click on Secure checkout button in Shooping Bag Page",
+            "line": 22,
+            "name": "Edit link for the product \"should not\" be displayed",
             "match": {
-              "location": "ProductBagSteps.iClickOnSecureCheckoutButtonInShoopingBagPage()"
+              "arguments": [
+                {
+                  "val": "should not",
+                  "offset": 27
+                }
+              ],
+              "location": "ProductBagSteps.editLinkForTheProductBeDisplayed(String)"
             },
-            "keyword": "And "
+            "keyword": "Then "
           },
           {
             "result": {
-              "duration": 1688468700,
+              "duration": 244975900,
               "status": "passed"
             },
-            "line": 19,
-            "name": "I click on Checkout Now Button in Sign-in Page",
+            "line": 23,
+            "name": "the User selects to remove all products in the bag",
             "match": {
-              "location": "SigninSteps.iClickOnCheckoutNowButtonInSignInPage()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3192556000,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "I fill user details",
-            "match": {
-              "location": "GuestCheckoutSteps.i_fill_user_details()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 31885187700,
-              "status": "passed"
-            },
-            "line": 21,
-            "name": "I click on Continue to Delivery button",
-            "match": {
-              "location": "GuestCheckoutSteps.iClickOnContinueToDeliveryButton()"
+              "location": "ProductBagSteps.theUserSelectsToRemoveAllProductsInTheBag()"
             },
             "keyword": "And "
           }
         ],
         "tags": [
           {
-            "name": "@wip"
+            "name": "@Regression"
           }
         ]
       }
     ],
-    "name": "Delivery Methods features",
-    "description": "  As a customer\n  I want to able to view my online Bag\n  So that I can see products prior to proceeding through checkout",
-    "id": "delivery-methods-features",
+    "name": "Product Bag features",
+    "description": "  As a customer\n  I want to be able to view my online bag\n  So that I can see products prior to procedding through checkout",
+    "id": "product-bag-features",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/web/RegressionTest/deliveryMethods.feature",
+    "uri": "src/test/resources/features/web/RegressionTest/productBag.feature",
     "tags": []
   }
 ]

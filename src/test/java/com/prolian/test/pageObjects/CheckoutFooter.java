@@ -52,6 +52,10 @@ public class CheckoutFooter extends PageObject {
                 break;
             case "HOME":
                 System.out.println("Code for Home Page");
+                if (isElementPresentByby(acceptCookies)){
+                    clickByElement(acceptCookies);
+                }
+
                 break;
             case  "BAG":
 
