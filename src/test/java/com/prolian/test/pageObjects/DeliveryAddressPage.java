@@ -17,6 +17,12 @@ public class DeliveryAddressPage extends PageObject {
     @FindBy(name = "selectDeliveryType")
     private WebElement chooseDeliveryMethod;
 
+    @FindBy(id = "selectClickAndCollect")
+    private WebElement clickAndCollectRadio;
+
+    @FindBy(css = ".alert--error p")
+    private WebElement alertMessage;
+
     public boolean isDeliveryTypeInfoDisplayed(){
 
         System.out.println("--------what value-----" +texttoBePresentInElementValue(deliveryTypes,"1. Delivery"));
@@ -32,6 +38,12 @@ public class DeliveryAddressPage extends PageObject {
     }
 
 
+    public String radClickAndCollectRadioGetMessage(){
+
+        clickUsingJS(clickAndCollectRadio);
+
+        return alertMessage.getAttribute("innerText");
+    }
 
 
 
